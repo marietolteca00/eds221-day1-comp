@@ -112,6 +112,14 @@ toolik_chlorophyll$active_chl_a_ug_l <-
 toolik_chlorophyll$active_chl_a_ug_l <- 
   as.numeric(toolik_chlorophyll$active_chl_a_ug_l)
 
+# Want to replace missing values with NA
+toolik_chlorophyll$pprod_mg_available_c_m3_d <-
+  na_if(toolik_chlorophyll$pprod_mg_available_c_m3_d, ".")
+
+# Convert chlorophyll data into numeric
+toolik_chlorophyll$pprod_mg_available_c_m3_d<- 
+  as.numeric(toolik_chlorophyll$pprod_mg_available_c_m3_d)
+
 # PLOT IT !
 toolik_chlorophyll_plot <- ggplot(data= toolik_chlorophyll,
        aes(x= depth, y= active_chl_a_ug_l)) +
